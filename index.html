@@ -5,6 +5,7 @@
 		<title>Video Uploader</title>
 		<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
 		<script type="text/javascript" charset="utf-8">
+
 			window.addEventListener("load", Ready); 
 			
 			function Ready(){ 
@@ -204,6 +205,20 @@ input[type=text] {
 				<label for="NameBox">Name: </label><input type="text" id="NameBox"><br>
 				<button	type='button' id='UploadButton' class='Button'>Upload</button>
 			</span>
+		</div>
+		<div>
+			<?php
+
+				$pg_conn = pg_connect(dbname='d46qsu6oqa79ur' host='ec2-75-101-143-150.compute-1.amazonaws.com' 
+					port='5432' user='kkqnaqhtxpkgbj' password='pb2RG7JJ4T0v652eMwfRA6Kgg2' sslmode='require');
+				
+				$stat = pg_connection_status($pg_conn);
+				if ($stat === PGSQL_CONNECTION_OK) {
+				    echo 'Connection status ok';
+				} else {
+				    echo 'Connection status bad';
+				}    
+			?>
 		</div>
 	</body>
 </html>

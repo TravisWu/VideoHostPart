@@ -4,6 +4,12 @@ var app = require('http').createServer(handler)
   , exec = require('child_process').exec
   , util = require('util')
   , Files = {};
+  , pg = require('pg');
+  
+pg.connect(process.env.DATABASE_URL, function(err, client){
+	if (err) throw err;
+	console.log('connected to progresql.');
+});
 
 app.listen(8080);
 
