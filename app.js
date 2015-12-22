@@ -3,8 +3,23 @@ var app = require('http').createServer(handler)
   , fs = require('fs')
   , exec = require('child_process').exec
   , util = require('util')
-  , Files = {};
+  , Files = {}
+  , pg = require('pg');
 
+var client = new pg.Client({
+	user: 'kkqnaqhtxpkgbj',
+	password: 'pb2RG7JJ4T0v652eMwfRA6Kgg2',
+	database: 'd46qsu6oqa79ur',
+	port: 5432,
+	host: 'ec2-75-101-143-150.compute-1.amazonaws.com',
+	ssl: true
+});
+try {
+	client.connect();
+}
+catch (er){
+	console.log(err);
+}
 
 app.listen(8080);
 
